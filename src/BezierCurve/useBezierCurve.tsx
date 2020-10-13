@@ -12,8 +12,8 @@ export const useBezierCurve = (props = {} as UseBezierCurve) => {
       map.add(instance);
       setBezierCurve(instance);
       return () => {
-        if (bezierCurve) {
-          map && map.remove(bezierCurve);
+        if (instance) {
+          map && map.removeLayer(instance);
           setBezierCurve(undefined);
         }
       }

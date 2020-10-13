@@ -13,8 +13,8 @@ export const useRectangle = (props = {} as UseRectangle) => {
       map.add(instance);
       setRectangle(instance);
       return () => {
-        if (rectangle) {
-          map && map.remove(rectangle);
+        if (instance) {
+          map && map.removeLayer(instance);
           setRectangle(undefined);
         }
       }

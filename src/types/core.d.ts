@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。
    */
-  class Map extends MapEventListener {
+  class Map extends MapEventListener<'mousemove' | 'zoomchange' | 'mapmove' | 'mousewheel' | 'zoomstart' | 'mouseover' | 'mouseout' | 'dblclick' | 'click' | 'zoomend' | 'moveend' | 'mouseup' | 'mousedown' | 'rightclick' | 'movestart' | 'dragstart' | 'dragging' | 'dragend' | 'hotspotout' | 'hotspotover' | 'touchstart' | 'complete' | 'hotspotclick' | 'touchmove' | 'touchend' | 'resize'> {
     /**
      * @param div 构造一个地图对象，参数 container 中传入地图容器 DIV 的 ID值 或者 DIV对象，opts 地图初始化参数对象，参数详情参看 MapOptions 列表。注意：地图容器在创建之前必须拥有实际大小，否则可能出现底图无法渲染的问题。
      * @param opts 地图初始化参数
@@ -95,16 +95,6 @@ declare namespace AMap {
      */
     panBy(x: number, y: number, duration?: number): void;
     /**
-     * 从地图上移除图层
-     * @param layer 地图图层
-     */
-    removeLayer(layer: TileLayer | Satellite | Traffic | RoadNet): void;
-    /**
-     * 将多个图层一次替代地图上原有图层，会移除地图原有图层
-     * @param layers 地图图层数组
-     */
-    setLayers(layers:Array<TileLayer | Satellite | Traffic | RoadNet>): void;
-    /**
      * 获取地图图层数组，数组为一个或多个图层
      * @returns 地图图层数组
      */
@@ -131,6 +121,29 @@ declare namespace AMap {
      */
     setDefaultCursor(cursor): void;
     /**
+     * 从地图上移除图层
+     * @param layer 地图图层
+     */
+    removeLayer(layer:
+      TileLayer |
+      Polygon |
+      Polyline |
+      BezierCurve |
+      Satellite |
+      Rectangle |
+      Traffic |
+      Ellipse |
+      HawkEye |
+      CircleMarker |
+      ContextMenu |
+      RoadNet
+    ): void;
+    /**
+     * 将多个图层一次替代地图上原有图层，会移除地图原有图层
+     * @param layers 地图图层数组
+     */
+    setLayers(layers:Array<TileLayer | Satellite | Traffic | RoadNet>): void;
+    /**
      * 添加覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features 覆盖物对象或者数组 VectorOverlay | Array<any>
      */
@@ -139,7 +152,7 @@ declare namespace AMap {
      * 删除覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features Array<any> | VectorOverlay
      */
-    remove(features: Array<any> | TileLayer | Polyline | HawkEye | Marker | Rectangle | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle): void;
+    remove(features: Array<any> | TileLayer | HawkEye | Marker | InfoWindow | Circle): void;
     /**
      * 注销地图对象，并清空地图容器
      */

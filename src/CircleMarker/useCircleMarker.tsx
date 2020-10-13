@@ -13,8 +13,8 @@ export const useCircleMarker = (props = {} as UseCircleMarker) => {
       map.add(instance);
       setCircleMarker(instance);
       return () => {
-        if (circleMarker) {
-          map && map.remove(circleMarker);
+        if (instance) {
+          map && map.removeLayer(instance);
           setCircleMarker(undefined);
         }
       }

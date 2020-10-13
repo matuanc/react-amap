@@ -97,6 +97,10 @@ export const routes: Routes = [
     path: "/auto-complete",
     component: loadable(() => import('./pages/auto-complete'), options),
   },
+  {
+    path: "/context-menu",
+    component: loadable(() => import('./pages/context-menu'), options),
+  },
 ];
 
 
@@ -104,6 +108,11 @@ export const menus = [
   {
     label: '快速开始',
     path: '/',
+  },
+  {
+    label: '国内镜像 🇨🇳',
+    target: '__blank',
+    path: 'https://uiw.gitee.io/react-amap',
   },
   {
     divider: true,
@@ -126,11 +135,11 @@ export const menus = [
     path: '/scale-control',
   },
   {
-    label: 'ToolBarControl 工具条控件',
+    label: 'ToolBarControl 缩放工具条',
     path: '/tool-bar-control',
   },
   {
-    label: 'MapTypeControl 工具条控件',
+    label: 'MapTypeControl 图层切换',
     path: '/map-type-control',
   },
   {
@@ -143,7 +152,7 @@ export const menus = [
   },
   {
     divider: true,
-    label: '覆盖物',
+    label: '点标记',
   },
   {
     label: 'Marker 点标记',
@@ -154,12 +163,28 @@ export const menus = [
     path: '/text',
   },
   {
+    divider: true,
+    label: '矢量图形',
+  },
+  {
+    label: 'Polygon 多边形',
+    path: '/polygon',
+  },
+  {
     label: 'Polyline 折线',
     path: '/polyline',
   },
   {
+    label: 'BesizerCurve 贝塞尔曲线',
+    path: '/beizer-curve',
+  },
+  {
     label: 'Circle 圆形',
     path: '/circle',
+  },
+  {
+    label: 'CircleMarker 圆点标记',
+    path: '/circle-marker',
   },
   {
     label: 'Ellipse 圆形组件',
@@ -170,24 +195,20 @@ export const menus = [
     path: '/rectangle',
   },
   {
-    label: 'BesizerCurve 贝塞尔曲线',
-    path: '/beizer-curve',
-  },
-  {
-    label: 'Polygon 多边形',
-    path: '/polygon',
-  },
-  {
-    label: 'CircleMarker 圆点标记',
-    path: '/circle-marker',
-  },
-  {
     divider: true,
     label: '信息窗体',
   },
   {
     label: 'InfoWindow 信息窗体',
     path: '/info-window',
+  },
+  {
+    divider: true,
+    label: '右键菜单',
+  },
+  {
+    label: 'ContextMenu 右键菜单',
+    path: '/context-menu',
   },
   {
     divider: true,
@@ -242,11 +263,6 @@ export const menus = [
     label: '源码 Gitee 仓库',
     target: '__blank',
     path: 'https://gitee.com/uiw/react-amap',
-  },
-  {
-    label: '国内镜像 🇨🇳',
-    target: '__blank',
-    path: 'https://uiw.gitee.io/react-amap',
   },
   {
     divider: true,

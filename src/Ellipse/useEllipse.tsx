@@ -13,8 +13,8 @@ export const useEllipse = (props = {} as UseEllipse) => {
       map.add(instance);
       setEllipse(instance);
       return () => {
-        if (ellipse) {
-          map && map.remove(ellipse);
+        if (instance) {
+          map && map.removeLayer(instance);
           setEllipse(undefined);
         }
       }
